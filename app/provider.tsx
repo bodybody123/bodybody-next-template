@@ -11,11 +11,11 @@ const cache = createCache({
 
 const Provider = ({ children }: { children: React.ReactNode}) => {
     return (
-                <ThemeProvider theme={theme}>
-                    <CssBaseline />
-                    {children}
-                </ThemeProvider>
-        )
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+            {children}
+        </ThemeProvider>
+      )
 }
 
 export default Provider;

@@ -8,7 +8,7 @@ import FormGroup from "@mui/material/FormGroup";
 import MuiLink from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import Link from "next/link";
+import NextLink from "next/link";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import { FormControl, IconButton, Input, InputAdornment, InputLabel, OutlinedInput } from "@mui/material";
@@ -32,33 +32,32 @@ const Login: React.FC = () => {
     return <Container className="h-screen flex items-center justify-center">
         <Paper className="p-5" elevation={16}>
             <form method="POST" onSubmit={onSubmit}>
-            <FormGroup>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
                         <TextField fullWidth name="username" label='Username'/>
                     </Grid>
                     <Grid item xs={12}>
-                    <FormControl fullWidth variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-password"
-            name="password"
-            type={showPassword ? 'text' : 'password'}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-            label="Password"
-          />
-        </FormControl>
+                      <FormControl fullWidth variant="outlined">
+                        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                        <OutlinedInput
+                          id="outlined-adornment-password"
+                          name="password"
+                          type={showPassword ? 'text' : 'password'}
+                          endAdornment={
+                            <InputAdornment position="end">
+                              <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={handleClickShowPassword}
+                                onMouseDown={handleMouseDownPassword}
+                                edge="end"
+                              >
+                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                              </IconButton>
+                            </InputAdornment>
+                          }
+                          label="Password"
+                        />
+                      </FormControl>
                     </Grid>
                     <Grid item xs={12}>
                         <FormControlLabel control={<Checkbox />} label='Remember me'/>
@@ -69,9 +68,9 @@ const Login: React.FC = () => {
                         </Button>
                     </Grid>
                 </Grid>
-            </FormGroup>
             </form>
-            <Typography variant="caption">Don&apos;t have account?</Typography> <Link href={'/signup'} passHref><MuiLink variant="caption">Sign up now</MuiLink></Link>
+            <Typography variant="caption">Don&apos;t have account?</Typography> 
+              <MuiLink  component={NextLink} href={'/sign-up'} variant="caption">Sign up now</MuiLink>
         </Paper>
         </Container>
 }
